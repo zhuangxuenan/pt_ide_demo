@@ -12,9 +12,9 @@
 #高阶函数 Higher-order function
 
 #函数本身也可以赋值给变量，即：变量可以指向函数
-import functools
 
-x = abs(-10)#函数赋值给变量
+
+x = abs(-100)#函数赋值给变量
 y = abs#函数本身赋值给变量
 print(x,y)#打印结果 10 <built-in function abs>
 #如果一个变量指向了一个函数，那么，可否通过该变量来调用这个函数
@@ -43,14 +43,14 @@ def f(x):
 y= map(f,[1,2, 3, 4, 5, 6, 7, 8, 9])
 print(y)
 print(list(y))
-#map() 传入的第一个参数是 f ，即函数对象本身。由于结果 y 是一个
-#Iterator ， Iterator 是惰性序列，因此通过 list() 函数让它把整个序列都
+#map() 传入的第一个参数是f，即函数对象本身。由于结果y是一个
+#Iterator,Iterator是惰性序列，因此通过list()函数让它把整个序列都
 #计算出来并返回一个 list
 #再比如把一个list都转成字符串
 print(list(map(str,[1,2,3,4,5,6,7,8,9])))
 #map() 作为高阶函数，事实上它把运算规则抽象了
 
-#redece
+#reduce
 #reduce 把一个函数作用在一个序列 [x1, x2, x3, ...]
 #上，这个函数必须接收两个参数， reduce 把结果继续和序列的下一个元
 #素做累积计算，其效果就是：
@@ -72,3 +72,14 @@ L1 = ['AdmIn','anny','LUCY','sandY','wILl']
 print(list(map(normalize,L1)))
 print('3*5*7*9=',reduce(pord,[3,5,7,9]))
 #filter
+#用于过滤序列 接收一个函数一个序列
+def is_odd(n):
+    return n%2==1
+print(list(filter(is_odd,[1,2,3,4,5,6,7,8,9])))#返回一个奇数序列
+def is_empty(s):
+    return s and s.strip()
+s_s = ['A', '', 'B', None, 'C', ' ']
+print(list(filter(is_empty,s_s)))
+# filter() 函数返回的是一个Iterator也就是一个惰性序列，所
+#以要强迫filter()完成计算结果，需要用list()函数获得所有结果并返回list
+
