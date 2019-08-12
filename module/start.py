@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-from module.test_class import Student, Dog, Cat, People, Animal, Teacher, Tables
-from module.multiple_inheritance import Dog2,Cat2,Parrot,Ostrich
+from module.test_class import Student, Dog, Cat, People, Animal, Teacher, Tables, Fib,MyList
+from module.multiple_inheritance import Dog2, Cat2, Parrot, Ostrich
 import types
 
 student = Student('王八羔子', 80)
@@ -73,7 +73,7 @@ teacher.print_other()
 
 tables = Tables()
 tables.score = 80
-print('成绩是：'+str(tables.score)+'----所在级别：'+tables.grade)
+print('成绩是：' + str(tables.score) + '----所在级别：' + tables.grade)
 print('多重继承分割线-------------------')
 dog2 = Dog2()
 cat2 = Cat2()
@@ -92,6 +92,35 @@ parrot.fly()
 print('----------------------------------')
 ostrich.cry()
 ostrich.temperature()
+# 定制类
+# 一个类作用于for循环
+for n in Fib():
+    print(n)
+# 根据下标取出元素
+f = Fib()
+print(f[0], f[1], f[2], f[3], f[4], f[5], f[6], f[7], f[8], f[9])
+print(f[:10])  # 传入的不是整数 是个切片
 
 
+# 枚举类
 
+# type()
+# 动态语言和静态语言最大的不同，就是函数和类的定义，不是编译时定义的，而是运行时动态创建的。
+# 在静态语言中 不论是函数 类还是变量 必须先定义后使用
+# 但是在python中 type()函数既可以返回一个对象的类型，又可以创建出新的类型，
+# 比如，我们可以通过type()函数创建出Hello类，而无需通过class Hello(object)...的定义：
+def fn(self, name='world'):  # 先定义函数
+    print('Hello %s' % name)
+# 要创建一个class对象，type()函数依次传入3个参数：
+    # class的名称；
+    # 继承的父类集合，注意Python支持多重继承，如果只有一个父类，别忘了tuple的单元素写法；(第二个参数是个父类的tuple集合，一个元素的tuple要在括号中加,)
+    # class的方法名称与函数绑定，这里我们把函数fn绑定到方法名hello上。
+Hello = type('Hello', (object,), dict(hello=fn))  # 创建hello class
+h = Hello()
+h.hello()
+print(type(Hello))
+print(type(h))
+# 使用metaclass来创建类
+L = MyList()
+L.add(1)
+print(L)
