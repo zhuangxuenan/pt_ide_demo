@@ -34,6 +34,7 @@ try:
     # 如果我们希望追加到文件末尾怎么办？可以传入'a'以追加（append）模式写入。
     with open('D:\py_img\kankan.txt', 'w', encoding='utf-8') as f3:
         f3.write(s)
+        #f3.writelines() #此函数传入一个要写入文件的字符串序列。 可以是一个list[] 也可以是一个tuple
 except FileNotFoundError as e:
     print('except:', e)
 finally:
