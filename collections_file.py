@@ -22,13 +22,19 @@ print(c.x, c.y, c.r)
 # deque除了实现list的append()和pop()外，还支持appendleft()和popleft()，这样就可以非常高效地往头部添加或删除元素。
 q = deque(['a', 'b', 'c', 'd'])
 print(q)
-q.append('e')
+q.append('e')  # 成功
 print(q)
-q.appendleft(('q', 'w', 'e'))
+q.appendleft(('q', 'w', 'e'))  # 成功
 print(q)
-q.appendleft(['r', 't', 'y'])
+q.appendleft(['r', 't', 'y'])  # 成功
 print(q)
-
+'''
+q.append('x', 'y')  # 失败
+q.append(('s', 'g'))  # 成功
+q.append(*('s', 'g'))  # 失败
+q.appendleft(*['r', 't', 'y'])  # 失败
+q.appendleft('x', 'y')  # 失败
+'''
 # defaultdict
 # 使用dict时，如果引用的Key不存在，就会抛出KeyError。如果希望key不存在时，返回一个默认值，就可以用defaultdict：
 # defaultdict是无需的 如果对它进行迭代 可能每次都会回去不同的结果

@@ -80,7 +80,9 @@ def calc(numbers):
 def calc2(*numbers):
     sum = 0
     for n in numbers:
-        sum += (n * n)
+        print('ffffffffffffffffffffffff',type(n))
+        if isinstance(n,int):
+            sum += (n * n)
     return sum
 
 
