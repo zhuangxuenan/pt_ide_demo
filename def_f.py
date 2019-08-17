@@ -7,6 +7,7 @@ from fuction import calc, calc2, enoll2, person, person2, f1, f2, fact
 
 # python为大家封装了一些函数 可以直接调用
 print(abs(100), abs(-100))  # 取一个数字的绝对值
+
 print(max(11, 55, 55, 22, 45, 788, 9777))  # 取最大值出来
 # 类型转换函数
 print(int('34'), str(24), float('13.13'), float('13'), bool(0), bool(1))
@@ -64,3 +65,6 @@ f2('dsgsdf', 'fsdf', 'fdsfs', d='我是关键字参数', **{'ff': 'vv', 'bb': "n
 f2('dsgsdf', 'fsdf', 'fdsfs', d='我是关键字参数', ff='vv', bb='nnn')
 # 递归函数调用
 print(fact(10))
+fff = abs
+print(id(fff),id(abs))
+print(hash(fff),hash(abs))  # 取一个数字的绝对值
