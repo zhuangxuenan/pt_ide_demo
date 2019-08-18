@@ -26,3 +26,7 @@ print(d)
 #用整数作为键
 d[144]="这是用整数来做键的"
 print(d)
+d['test'] = {'token': '12345', 'status': 'working'}
+print(d)
+ff = dict(aa = 12,bb = 13,cc = 'ggg',dd = {'token': '12345', 'status': 'working'})
+print(ff)
