@@ -4,17 +4,17 @@ import requests
 # 它用起来比较麻烦，而且，缺少很多实用的高级功能。
 # 更好的方案是使用requests。它是一个Python第三方库，处理URL资源特别方便
 # 需要传入HTTP Header时，我们传入一个dict作为headers参数：
-r = requests.get('https://www.douban.com/')
+r = requests.get('https://api.apiopen.top/getJoke?page=1&count=2&type=video')
 print(r.status_code)  # 得到请求状态码 200 500 403
-print('--------------------------分割线-----------------------------')
-# print(r.text)  # 得到响应数据
-print('--------------------------分割线-----------------------------')
+print('-----分割线------')
+print(r.text)  # 得到响应数据
+print('-----分割线------')
 print(r.ok)  # 根据不同的状态码返回True或者False
-print('--------------------------分割线-----------------------------')
+print('-----分割线------')
 print(r.content)  # 响应数据 以字节形式返回
-print('--------------------------分割线-----------------------------')
+print('-----分割线------')
 # 如果返回的数据是json的话 可以使用.json() 如果响应数据不是json的话不要使用这个函数
-# print(r.json())
+print(r.json())
 print(r.headers)  # 获取请求头信息
 print('--------------------------参数分割线-----------------------------')
 # 带参数的URL，传入一个dict作为params参数：

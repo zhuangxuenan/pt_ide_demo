@@ -39,7 +39,7 @@ q.appendleft('x', 'y')  # 失败
 # 使用dict时，如果引用的Key不存在，就会抛出KeyError。如果希望key不存在时，返回一个默认值，就可以用defaultdict：
 # defaultdict是无需的 如果对它进行迭代 可能每次都会回去不同的结果
 dd = defaultdict(lambda: 'N/a')
-dd['key1'] = 'fdsfsgfdgfg'
+dd['key1'] = 'default'
 print(dd['key1'], '- - -分割线- - -', dd['key2'])
 
 # OrderedDict

@@ -19,11 +19,11 @@ t7 = t1.strftime('%a, %b %Y-%m-%d %H:%M:%S')
 t8 = t1 - timedelta(hours=10)  # 往前倒退10个小时
 t9 = t1 - timedelta(days=1)  # 往前倒退1天、
 t10 = t1 - timedelta(days=1, hours=1)  # 往前倒退一天零1小时
-print('t1:---', t1)
+print(t1)
 print(int(t2))
 print(t3)
 print(int(t4))
 print(t5)
 print(t6)
 print(t7)
-print(t8, '----------', t9, '------------', t10)
+print(t8, ' ', t9, ' ', t10)
