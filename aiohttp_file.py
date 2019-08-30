@@ -4,7 +4,7 @@
 # https://blog.csdn.net/qq_31235811/article/details/93380242
 # https://www.jianshu.com/p/3de5c3626012
 # https://www.cnblogs.com/ssyfj/p/9222342.html
-# 使用示例, 进行一次请求
+
 
 import aiohttp, asyncio
 import json
@@ -35,8 +35,8 @@ async def main(pool=5):
     # 控制同时连接的数量（连接池）
     # 同时最大进行连接的连接数为30，默认是100，limit=0的时候是无限制
     # 同一端口连接数量 limit_per_host
-    conn = aiohttp.TCPConnector(limit=2,limit_per_host=30)
-    async with aiohttp.ClientSession(cookie_jar=jar,connector=conn) as session:  # 给所有的请求，创建同一个session
+    conn = aiohttp.TCPConnector(limit=2, limit_per_host=30)
+    async with aiohttp.ClientSession(cookie_jar=jar, connector=conn) as session:  # 给所有的请求，创建同一个session
         tasks = []
         # 列表生成式的方式初始化list
         [tasks.append(control_sem(sem, 'https://api.github.com/events?a={}'.format(i), session)) for i in
@@ -84,7 +84,7 @@ async def postparams2():
     payload = {'some': 'data'}
     headers = {'content-type': 'application/json; charset=utf-8'}
     # json=json.dumps(payload) 将json对象处理成一个json字符串
-    async with aiohttp.ClientSession().post(url, json.dumps(payload), headers=headers) as resp:
+    async with aiohttp.ClientSession().post(url, data=json.dumps(payload), headers=headers) as resp:
         r = await resp.json
         print(r)
 
