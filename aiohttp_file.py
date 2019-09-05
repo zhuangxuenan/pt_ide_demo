@@ -39,8 +39,7 @@ async def main(pool=5):
     async with aiohttp.ClientSession(cookie_jar=jar, connector=conn) as session:  # 给所有的请求，创建同一个session
         tasks = []
         # 列表生成式的方式初始化list
-        [tasks.append(control_sem(sem, 'https://api.github.com/events?a={}'.format(i), session)) for i in
-         range(10)]  # 十次请求
+        [tasks.append(control_sem(sem, 'https://api.github.com/events?a={}'.format(i), session)) for i in range(10)]  # 十次请求
         await asyncio.wait(tasks)
 
 
